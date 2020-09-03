@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30413.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sprylio-api", "sprylio-api.csproj", "{9FFA4803-FBF5-4D0D-A8B3-9D02F506A769}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9FFA4803-FBF5-4D0D-A8B3-9D02F506A769}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FFA4803-FBF5-4D0D-A8B3-9D02F506A769}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FFA4803-FBF5-4D0D-A8B3-9D02F506A769}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FFA4803-FBF5-4D0D-A8B3-9D02F506A769}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E629C94D-C6F8-437A-A59B-06BF19573802}
+	EndGlobalSection
+EndGlobal
