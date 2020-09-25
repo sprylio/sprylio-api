@@ -51,3 +51,6 @@ resharper_apply_on_completion=true
 resharper_space_within_single_line_array_initializer_braces=true
 resharper_trailing_comma_in_multiline_lists=true
 resharper_trailing_comma_in_singleline_lists=true
+
+# SA0001: XML comment analysis is disabled due to project configuration
+dotnet_diagnostic.SA0001.severity = none
