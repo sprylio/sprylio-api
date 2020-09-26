@@ -1,3 +1,6 @@
+# To view the latest SDK version referenced below: https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/5.0/releases.json
+# See https://github.com/dotnet/runtime/issues/34699#issuecomment-611094892
+
 name: .NET Core
 
 on:

@@ -1,6 +1,8 @@
 // Copyright (c) Sprylio Inc. and contributors. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
+using System;
+using System.IO;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -43,6 +45,10 @@ namespace Sprylio.Api
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Sprylio Public API", Version = "v1", });
+
+                // See https://stackoverflow.com/a/53886604
+                c.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "Sprylio.Api.xml"));
+                c.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "Sprylio.Api.Model.xml"));
             });
         }
 

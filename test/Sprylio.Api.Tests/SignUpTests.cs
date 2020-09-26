@@ -1,10 +1,13 @@
 // Copyright (c) Sprylio Inc. and contributors. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
-using System.Net.Http;
+using System.Net;
+using System.Net.Http.Json;
 using System.Threading.Tasks;
+using FluentAssertions;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Sprylio.Api.Common;
+using Sprylio.Api.Model;
 using Xunit;
 
 namespace Sprylio.Api.Tests
@@ -27,13 +30,29 @@ namespace Sprylio.Api.Tests
         {
             // Arrange
             var client = this.factory.CreateClient();
-            var content = new StringContent(string.Empty);
 
             // Act
-            var response = await client.PostAsync(Routes.Signups, content);
+            var response = await client.PostAsJsonAsync(Routes.Signups, new Signup("test@test.com"));
 
             // Assert
-            response.EnsureSuccessStatusCode();
+            response.IsSuccessStatusCode.Should().BeTrue();
+            response.StatusCode.Should().Be(HttpStatusCode.Accepted);
+        }
+
+        [Fact]
+        public async Task posting_an_invalid_email_should_return_bad_request()
+        {
+            // Arrange
+            var client = this.factory.CreateClient();
+
+            // Act
+            var response = await client.PostAsJsonAsync(Routes.Signups, new Signup("foo"));
+
+            // Assert
+            response.IsSuccessStatusCode.Should().BeFalse();
+            response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
+            var errorMessage = await response.Content.ReadAsStringAsync();
+            errorMessage.Should().Contain("The EmailAddress field is not a valid e-mail address.");
         }
     }
 }
