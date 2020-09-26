@@ -17,6 +17,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{FC0102AD-D
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sprylio.Api.Tests", "test\Sprylio.Api.Tests\Sprylio.Api.Tests.csproj", "{35E48013-76CC-42B9-AFCE-0CE66E7573CF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sprylio.Api.Common", "src\Sprylio.Api.Common\Sprylio.Api.Common.csproj", "{4531F061-8703-447F-AFC9-9E48F43912EF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{35E48013-76CC-42B9-AFCE-0CE66E7573CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{35E48013-76CC-42B9-AFCE-0CE66E7573CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{35E48013-76CC-42B9-AFCE-0CE66E7573CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4531F061-8703-447F-AFC9-9E48F43912EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4531F061-8703-447F-AFC9-9E48F43912EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4531F061-8703-447F-AFC9-9E48F43912EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4531F061-8703-447F-AFC9-9E48F43912EF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -38,6 +44,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{0AB4189D-E7A0-4E37-BA53-A512E6AF0802} = {0813D302-7294-48FF-A32D-D61585E04C81}
 		{35E48013-76CC-42B9-AFCE-0CE66E7573CF} = {FC0102AD-DF90-4BF4-92D3-23F7F610C6A6}
+		{4531F061-8703-447F-AFC9-9E48F43912EF} = {0813D302-7294-48FF-A32D-D61585E04C81}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2C188CA9-8296-4239-A26E-24D8752214FA}

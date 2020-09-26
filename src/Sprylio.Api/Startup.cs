@@ -39,9 +39,10 @@ namespace Sprylio.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "sprylio_api", Version = "v1", });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Sprylio Public API", Version = "v1", });
             });
         }
 

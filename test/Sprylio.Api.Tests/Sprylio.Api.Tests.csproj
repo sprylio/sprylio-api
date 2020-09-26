@@ -34,6 +34,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\src\Sprylio.Api.Common\Sprylio.Api.Common.csproj" />
     <ProjectReference Include="..\..\src\Sprylio.Api\Sprylio.Api.csproj" />
   </ItemGroup>
 
