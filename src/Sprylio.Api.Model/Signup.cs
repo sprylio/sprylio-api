@@ -39,6 +39,7 @@ namespace Sprylio.Api.Model
         /// The email address.
         /// </value>
         [EmailAddress]
+        [MaxLength(254)]
         public string EmailAddress { get; set; }
     }
 }

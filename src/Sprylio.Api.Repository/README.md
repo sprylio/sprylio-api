@@ -5,6 +5,9 @@ https://docs.microsoft.com/en-us/ef/core/managing-schemas/migrations/?tabs=dotne
 ### Creating the initial DB
 PS C:\Users\rbeau\Documents\GitHub\Sprylio\sprylio-api\src\Sprylio.Api> dotnet ef migrations add InitialCreate --project ..\Sprylio.Api.Repository
 
+### Remove a migration
+\> dotnet ef migrations remove --project ..\Sprylio.Api.Repository
+
 ### Integration testing with LocalDB
 https://www.damirscorner.com/blog/posts/20191206-EfCoreIntegrationTestingWithSqlLocalDb.html
 
