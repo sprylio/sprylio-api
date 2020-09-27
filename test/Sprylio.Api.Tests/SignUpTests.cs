@@ -1,6 +1,7 @@
 // Copyright (c) Sprylio Inc. and contributors. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
+using System;
 using System.Net;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
@@ -32,7 +33,7 @@ namespace Sprylio.Api.Tests
             var client = this.factory.CreateClient();
 
             // Act
-            var response = await client.PostAsJsonAsync(Routes.Signups, new Signup("test@test.com"));
+            var response = await client.PostAsJsonAsync(Routes.Signups, new Signup(default, "test@test.com"));
 
             // Assert
             response.IsSuccessStatusCode.Should().BeTrue();
@@ -46,7 +47,7 @@ namespace Sprylio.Api.Tests
             var client = this.factory.CreateClient();
 
             // Act
-            var response = await client.PostAsJsonAsync(Routes.Signups, new Signup("foo"));
+            var response = await client.PostAsJsonAsync(Routes.Signups, new Signup(default, "foo"));
 
             // Assert
             response.IsSuccessStatusCode.Should().BeFalse();

@@ -1,6 +1,7 @@
 ﻿// Copyright (c) Sprylio Inc. and contributors. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace Sprylio.Api.Model
@@ -13,13 +14,23 @@ namespace Sprylio.Api.Model
     public class Signup
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="Signup"/> class.
+        /// Initializes a new instance of the <see cref="Signup" /> class.
         /// </summary>
+        /// <param name="id">The identifier.</param>
         /// <param name="emailAddress">The email address.</param>
-        public Signup(string emailAddress)
+        public Signup(Guid? id, string emailAddress)
         {
+            this.Id = id;
             this.EmailAddress = emailAddress;
         }
+
+        /// <summary>
+        /// Gets or sets the identifier.
+        /// </summary>
+        /// <value>
+        /// The identifier.
+        /// </value>
+        public Guid? Id { get; set; }
 
         /// <summary>
         /// Gets or sets the email address.
