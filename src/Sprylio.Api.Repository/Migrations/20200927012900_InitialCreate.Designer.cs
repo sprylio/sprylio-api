@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Sprylio.Api.Repository;
-
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
 namespace Sprylio.Api.Repository.Migrations
 {
     [DbContext(typeof(SprylioRepository))]
