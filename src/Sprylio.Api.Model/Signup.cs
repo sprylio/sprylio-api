@@ -18,28 +18,38 @@ namespace Sprylio.Api.Model
         /// </summary>
         /// <param name="id">The identifier.</param>
         /// <param name="emailAddress">The email address.</param>
-        public Signup(Guid? id, string emailAddress)
+        /// <param name="createdDateTime">The created date time.</param>
+        public Signup(Guid id, string emailAddress, DateTime createdDateTime)
         {
             this.Id = id;
             this.EmailAddress = emailAddress;
+            this.CreatedDateTime = createdDateTime;
         }
 
         /// <summary>
-        /// Gets or sets the identifier.
+        /// Gets the identifier.
         /// </summary>
         /// <value>
         /// The identifier.
         /// </value>
-        public Guid? Id { get; set; }
+        public Guid Id { get; private set;  }
 
         /// <summary>
-        /// Gets or sets the email address.
+        /// Gets the email address.
         /// </summary>
         /// <value>
         /// The email address.
         /// </value>
         [EmailAddress]
         [MaxLength(254)]
-        public string EmailAddress { get; set; }
+        public string EmailAddress { get; private set; }
+
+        /// <summary>
+        /// Gets the created date time.
+        /// </summary>
+        /// <value>
+        /// The created date time.
+        /// </value>
+        public DateTime CreatedDateTime { get; private set; }
     }
 }

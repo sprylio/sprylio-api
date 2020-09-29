@@ -1,10 +1,13 @@
 ﻿// Copyright (c) Sprylio Inc. and contributors. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
+using System;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Sprylio.Api.Common;
 using Sprylio.Api.Model;
+using Sprylio.Api.Repository;
 
 namespace Sprylio.Api.Controllers
 {
@@ -31,13 +34,26 @@ namespace Sprylio.Api.Controllers
         /// <summary>
         /// Post a signup.
         /// </summary>
-        /// <param name="signup">The signup data.</param>
+        /// <param name="data">The signup data.</param>
         /// <returns>
         /// The completed task.
         /// </returns>
         [HttpPost(Routes.Signups)]
-        public IActionResult Post(Signup signup)
+        public async Task<IActionResult> Post(CreateSignupData data)
         {
+            var signup = new Signup(RT.Comb.Provider.Sql.Create(), data.EmailAddress, DateTime.UtcNow);
+
+            await using (var repository = new SprylioRepository())
+            {
+                await repository.Database.EnsureDeletedAsync();
+
+                await repository.Database.EnsureCreatedAsync();
+
+                await repository.Signups.AddAsync(signup);
+
+                await repository.SaveChangesAsync();
+            }
+
             return this.Accepted();
         }
     }

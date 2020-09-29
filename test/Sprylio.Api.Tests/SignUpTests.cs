@@ -33,7 +33,7 @@ namespace Sprylio.Api.Tests
             var client = this.factory.CreateClient();
 
             // Act
-            var response = await client.PostAsJsonAsync(Routes.Signups, new Signup(default, "test@test.com"));
+            var response = await client.PostAsJsonAsync(Routes.Signups, new CreateSignupData("test@test.com"));
 
             // Assert
             response.IsSuccessStatusCode.Should().BeTrue();
@@ -47,7 +47,7 @@ namespace Sprylio.Api.Tests
             var client = this.factory.CreateClient();
 
             // Act
-            var response = await client.PostAsJsonAsync(Routes.Signups, new Signup(default, "foo"));
+            var response = await client.PostAsJsonAsync(Routes.Signups, new CreateSignupData("foo"));
 
             // Assert
             response.IsSuccessStatusCode.Should().BeFalse();

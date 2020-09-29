@@ -2,6 +2,7 @@
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Sprylio.Api.Model;
 
 namespace Sprylio.Api.Repository
@@ -23,7 +24,18 @@ namespace Sprylio.Api.Repository
         /// <inheritdoc />
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=sprylio;Trusted_Connection=True;ConnectRetryCount=0");
+            optionsBuilder.UseCosmos("https://localhost:8081", "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==", "sprylio");
+        }
+
+        /// <inheritdoc />
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Signup>(entity =>
+                {
+                    entity.HasKey(signup => signup.Id);
+                    entity.HasPartitionKey(signup => signup.Id);
+                    entity.Property(signup => signup.Id).HasConversion(new GuidToStringConverter());
+                });
         }
     }
 }
