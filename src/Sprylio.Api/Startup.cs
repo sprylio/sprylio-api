@@ -50,6 +50,8 @@ namespace Sprylio.Api
                 c.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "Sprylio.Api.xml"));
                 c.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "Sprylio.Api.Model.xml"));
             });
+
+            this.ConfigureEnvironmentSpecificServices(services);
         }
 
         /// <summary>
@@ -73,6 +75,14 @@ namespace Sprylio.Api
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
+        }
+
+        /// <summary>
+        ///     Configures the environment specific services.
+        /// </summary>
+        /// <param name="services">The services.</param>
+        protected virtual void ConfigureEnvironmentSpecificServices(IServiceCollection services)
+        {
         }
     }
 }

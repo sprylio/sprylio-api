@@ -20,17 +20,6 @@ namespace Sprylio.Api.Controllers
     [ApiController]
     public class SignupsController : ControllerBase
     {
-        private readonly ILogger<SignupsController> logger;
-
-        /// <summary>
-        ///     Initializes a new instance of the <see cref="SignupsController" /> class.
-        /// </summary>
-        /// <param name="logger">The logger.</param>
-        public SignupsController(ILogger<SignupsController> logger)
-        {
-            this.logger = logger;
-        }
-
         /// <summary>
         /// Post a signup.
         /// </summary>

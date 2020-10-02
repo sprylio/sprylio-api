@@ -35,6 +35,9 @@ namespace Sprylio.Api.Repository
                     entity.HasKey(signup => signup.Id);
                     entity.HasPartitionKey(signup => signup.Id);
                     entity.Property(signup => signup.Id).HasConversion(new GuidToStringConverter());
+
+                    // entity.HasAlternateKey(signup => signup.EmailAddress);
+                    entity.HasIndex(signup => signup.EmailAddress).IsUnique();
                 });
         }
     }
