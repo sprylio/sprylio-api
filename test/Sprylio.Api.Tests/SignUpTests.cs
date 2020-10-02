@@ -5,7 +5,6 @@ using System.Net;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
 using FluentAssertions;
-using Microsoft.AspNetCore.Mvc.Testing;
 using Sprylio.Api.Common;
 using Sprylio.Api.Model;
 using Xunit;
@@ -13,8 +12,8 @@ using Xunit;
 namespace Sprylio.Api.Tests
 {
     /// <summary>
-    /// See https://adamstorr.azurewebsites.net/blog/integration-testing-with-aspnetcore-3-1 and
-    /// https://docs.microsoft.com/en-us/aspnet/core/test/integration-tests?view=aspnetcore-3.0#customize-webapplicationfactory.
+    ///     See https://adamstorr.azurewebsites.net/blog/integration-testing-with-aspnetcore-3-1 and
+    ///     https://docs.microsoft.com/en-us/aspnet/core/test/integration-tests?view=aspnetcore-3.0#customize-webapplicationfactory.
     /// </summary>
     public class SignupTests : IClassFixture<TestWebApplicationFactory>
     {

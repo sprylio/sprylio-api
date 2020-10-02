@@ -4,7 +4,7 @@
 using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
+using RT.Comb;
 using Sprylio.Api.Common;
 using Sprylio.Api.Model;
 using Sprylio.Api.Repository;
@@ -12,25 +12,25 @@ using Sprylio.Api.Repository;
 namespace Sprylio.Api.Controllers
 {
     /// <summary>
-    /// Manages signups.
-    /// For routing see https://docs.microsoft.com/en-us/aspnet/core/mvc/controllers/routing?view=aspnetcore-5.0#ar.
-    /// For a full example, see https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-web-api.
+    ///     Manages signups.
+    ///     For routing see https://docs.microsoft.com/en-us/aspnet/core/mvc/controllers/routing?view=aspnetcore-5.0#ar.
+    ///     For a full example, see https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-web-api.
     /// </summary>
     /// <seealso cref="ControllerBase" />
     [ApiController]
     public class SignupsController : ControllerBase
     {
         /// <summary>
-        /// Post a signup.
+        ///     Post a signup.
         /// </summary>
         /// <param name="data">The signup data.</param>
         /// <returns>
-        /// The completed task.
+        ///     The completed task.
         /// </returns>
         [HttpPost(Routes.Signups)]
         public async Task<IActionResult> Post(CreateSignupData data)
         {
-            var signup = new Signup(RT.Comb.Provider.Sql.Create(), data.EmailAddress, DateTime.UtcNow);
+            var signup = new Signup(Provider.Sql.Create(), data.EmailAddress, DateTime.UtcNow);
 
             await using (var repository = new SprylioRepository())
             {

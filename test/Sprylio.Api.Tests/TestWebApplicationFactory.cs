@@ -14,7 +14,7 @@ namespace Sprylio.Api.Tests
     ///     Based upon
     ///     https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples/3.x/IntegrationTestsSample.
     /// </summary>
-    /// <seealso cref="WebApplicationFactory{TStartup}" />
+    /// <seealso cref="WebApplicationFactory{TEntryPoint}" />
     public class TestWebApplicationFactory : WebApplicationFactory<TestStartup>
     {
         protected override IHost CreateHost(IHostBuilder builder)
@@ -25,13 +25,11 @@ namespace Sprylio.Api.Tests
 
         protected override IHostBuilder CreateHostBuilder()
         {
-            return Host.CreateDefaultBuilder()
-                .ConfigureWebHostDefaults(webBuilder =>
-                {
-                    webBuilder.ConfigureTestServices(services => services.AddControllers().AddApplicationPart(typeof(Program).Assembly));
-                    webBuilder.UseStartup<TestStartup>();
-                })
-                .UseServiceProviderFactory(new AutofacServiceProviderFactory());
+            return Host.CreateDefaultBuilder().ConfigureWebHostDefaults(webBuilder =>
+            {
+                webBuilder.ConfigureTestServices(services => services.AddControllers().AddApplicationPart(typeof(Program).Assembly));
+                webBuilder.UseStartup<TestStartup>();
+            }).UseServiceProviderFactory(new AutofacServiceProviderFactory());
         }
     }
 }

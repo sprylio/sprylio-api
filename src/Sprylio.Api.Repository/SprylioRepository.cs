@@ -8,16 +8,16 @@ using Sprylio.Api.Model;
 namespace Sprylio.Api.Repository
 {
     /// <summary>
-    /// The repository for the sprylio db.
+    ///     The repository for the sprylio db.
     /// </summary>
     /// <seealso cref="Microsoft.EntityFrameworkCore.DbContext" />
     public class SprylioRepository : DbContext
     {
         /// <summary>
-        /// Gets the signups.
+        ///     Gets the signups.
         /// </summary>
         /// <value>
-        /// The signups.
+        ///     The signups.
         /// </value>
         public DbSet<Signup> Signups => this.Set<Signup>();
 
@@ -31,14 +31,14 @@ namespace Sprylio.Api.Repository
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Signup>(entity =>
-                {
-                    entity.HasKey(signup => signup.Id);
-                    entity.HasPartitionKey(signup => signup.Id);
-                    entity.Property(signup => signup.Id).HasConversion(new GuidToStringConverter());
+            {
+                entity.HasKey(signup => signup.Id);
+                entity.HasPartitionKey(signup => signup.Id);
+                entity.Property(signup => signup.Id).HasConversion(new GuidToStringConverter());
 
-                    // entity.HasAlternateKey(signup => signup.EmailAddress);
-                    entity.HasIndex(signup => signup.EmailAddress).IsUnique();
-                });
+                // entity.HasAlternateKey(signup => signup.EmailAddress);
+                entity.HasIndex(signup => signup.EmailAddress).IsUnique();
+            });
         }
     }
 }

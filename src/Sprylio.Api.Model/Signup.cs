@@ -7,14 +7,14 @@ using System.ComponentModel.DataAnnotations;
 namespace Sprylio.Api.Model
 {
     /// <summary>
-    /// The Signup resource.
-    /// See https://docs.microsoft.com/en-us/ef/core/miscellaneous/nullable-reference-types.
-    /// and https://github.com/layomia/NET5JsonDemos/blob/master/Program.cs.
+    ///     The Signup resource.
+    ///     See https://docs.microsoft.com/en-us/ef/core/miscellaneous/nullable-reference-types.
+    ///     and https://github.com/layomia/NET5JsonDemos/blob/master/Program.cs.
     /// </summary>
     public class Signup
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="Signup" /> class.
+        ///     Initializes a new instance of the <see cref="Signup" /> class.
         /// </summary>
         /// <param name="id">The identifier.</param>
         /// <param name="emailAddress">The email address.</param>
@@ -27,28 +27,28 @@ namespace Sprylio.Api.Model
         }
 
         /// <summary>
-        /// Gets the identifier.
+        ///     Gets the identifier.
         /// </summary>
         /// <value>
-        /// The identifier.
+        ///     The identifier.
         /// </value>
-        public Guid Id { get; private set;  }
+        public Guid Id { get; private set; }
 
         /// <summary>
-        /// Gets the email address.
+        ///     Gets the email address.
         /// </summary>
         /// <value>
-        /// The email address.
+        ///     The email address.
         /// </value>
         [EmailAddress]
         [MaxLength(254)]
         public string EmailAddress { get; private set; }
 
         /// <summary>
-        /// Gets the created date time.
+        ///     Gets the created date time.
         /// </summary>
         /// <value>
-        /// The created date time.
+        ///     The created date time.
         /// </value>
         public DateTime CreatedDateTime { get; private set; }
     }
