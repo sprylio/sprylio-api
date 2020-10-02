@@ -10,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 namespace Sprylio.Api.Tests
 {
     /// <summary>
+    ///     See https://blog.johnnyreilly.com/2020/10/autofac-6-integration-tests-and-generic-hosting.html.
     ///     Based upon https://github.com/dotnet/aspnetcore/issues/14907#issuecomment-620750841 - only necessary because of an
     ///     issue in ASP.NET Core.
     /// </summary>
