@@ -19,12 +19,7 @@ jobs:
       # You can find the latest sdk version here: https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/5.0/releases.json
         dotnet-version: 5.0.100-rc.1.20452.10
     - name: Install dependencies
-      uses: actions/cache@v2
-      with:
-        path: ~/.nuget/packages
-        key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-nuget-
+      run: dotnet restore
     - name: Build
       run: dotnet build --configuration Release --no-restore
     - name: Azure Cosmos DB Emulator
