@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "dependencies": {
+    ".NETStandard,Version=v2.1": {
+      "RT.Comb": {
+        "type": "Direct",
+        "requested": "[2.4.0, )",
+        "resolved": "2.4.0",
+        "contentHash": "72ObzjRX+UrcJLS5pA5ed/2K25IRmY5G+lEnHyRSippmYQQEs2qXtdc7KwSJFRzJ0r6WjuRNvXCkmDaiPlZ/Vg=="
+      },
+      "StyleCop.Analyzers": {
+        "type": "Direct",
+        "requested": "[1.2.0-beta.205, )",
+        "resolved": "1.2.0-beta.205",
+        "contentHash": "ORvUXKlJRqAWstZiSH9LgEuM5hBye8mUDDSpMoQhiKLFUtFEGesfr88Qa8jC0KKVaBTUZzdo4fNZM4oHeV/JsQ==",
+        "dependencies": {
+          "StyleCop.Analyzers.Unstable": "1.2.0.205"
+        }
+      },
+      "System.ComponentModel.Annotations": {
+        "type": "Direct",
+        "requested": "[5.0.0-rc.1.20451.14, )",
+        "resolved": "5.0.0-rc.1.20451.14",
+        "contentHash": "DKy6FVHr2xf81iM473Xd4+gfhxWHjKGrqx+O02xgvVGfzt5cSU9sIX5yoo02EqVZhkWFm0CP6Zu4rD+8f2A69g=="
+      },
+      "StyleCop.Analyzers.Unstable": {
+        "type": "Transitive",
+        "resolved": "1.2.0.205",
+        "contentHash": "YiRjba3yBp2mCvtsOeQf8XU1tPaOZFTKxcsj44tTpGrhRchmtuKtgyMCV9kkOFdfKISnHk0gzhigITlrrrvMuA=="
+      }
+    }
+  }
+}

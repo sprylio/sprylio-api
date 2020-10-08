@@ -8,6 +8,7 @@
     <IsPackable>false</IsPackable>
     <OutputType>Library</OutputType>
     <GenerateDocumentationFile>false</GenerateDocumentationFile>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
   </PropertyGroup>
 
   <ItemGroup>
