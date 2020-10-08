@@ -25,6 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Sprylio.Api.Common\Sprylio.Api.Common.csproj" />
     <ProjectReference Include="..\Sprylio.Api.Model\Sprylio.Api.Model.csproj" />
   </ItemGroup>
 

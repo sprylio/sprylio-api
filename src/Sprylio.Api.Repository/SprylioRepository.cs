@@ -30,14 +30,14 @@ namespace Sprylio.Api.Repository
         /// <inheritdoc />
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            // See https://azure.microsoft.com/en-us/blog/a-fintech-startup-pivots-to-azure-cosmos-db/
+            // to choose appropriate partition keys
             modelBuilder.Entity<Signup>(entity =>
             {
                 entity.HasKey(signup => signup.Id);
                 entity.HasPartitionKey(signup => signup.Id);
+                entity.HasAlternateKey(signup => signup.EmailAddress);
                 entity.Property(signup => signup.Id).HasConversion(new GuidToStringConverter());
-
-                // entity.HasAlternateKey(signup => signup.EmailAddress);
-                entity.HasIndex(signup => signup.EmailAddress).IsUnique();
             });
         }
     }

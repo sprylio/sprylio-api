@@ -5,8 +5,11 @@ using System.Net;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
 using FluentAssertions;
+using Microsoft.Extensions.DependencyInjection;
 using Sprylio.Api.Common;
 using Sprylio.Api.Model;
+using Sprylio.Api.Repository;
+using Sprylio.Api.Tests.Setup;
 using Xunit;
 
 namespace Sprylio.Api.Tests
@@ -15,6 +18,7 @@ namespace Sprylio.Api.Tests
     ///     See https://adamstorr.azurewebsites.net/blog/integration-testing-with-aspnetcore-3-1 and
     ///     https://docs.microsoft.com/en-us/aspnet/core/test/integration-tests?view=aspnetcore-3.0#customize-webapplicationfactory.
     /// </summary>
+    [Collection("SetupCollection")]
     public class SignupTests : IClassFixture<TestWebApplicationFactory>
     {
         private readonly TestWebApplicationFactory factory;
@@ -22,6 +26,12 @@ namespace Sprylio.Api.Tests
         public SignupTests(TestWebApplicationFactory factory)
         {
             this.factory = factory;
+
+            var repository = factory.Services.GetRequiredService<SprylioRepository>();
+
+            repository.Database.EnsureDeleted();
+
+            repository.Database.EnsureCreated();
         }
 
         [Fact]
@@ -38,7 +48,7 @@ namespace Sprylio.Api.Tests
             response.StatusCode.Should().Be(HttpStatusCode.Accepted);
         }
 
-        [Fact]
+        [Fact(Skip = "Work in progress")]
         public async Task should_NOT_be_able_to_post_duplicate_email_addresses()
         {
             // Arrange

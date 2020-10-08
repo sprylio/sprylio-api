@@ -7,8 +7,9 @@ using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Sprylio.Api.Repository;
 
-namespace Sprylio.Api.Tests
+namespace Sprylio.Api.Tests.Setup
 {
     /// <summary>
     ///     Based upon
@@ -21,6 +22,7 @@ namespace Sprylio.Api.Tests
         {
             // From https://github.com/dotnet/aspnetcore/issues/17707#issuecomment-609061917
             builder.UseContentRoot(Directory.GetCurrentDirectory());
+
             return base.CreateHost(builder);
         }
 

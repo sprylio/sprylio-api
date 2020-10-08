@@ -20,6 +20,17 @@ namespace Sprylio.Api.Controllers
     [ApiController]
     public class SignupsController : ControllerBase
     {
+        private readonly SprylioRepository repository;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SignupsController"/> class.
+        /// </summary>
+        /// <param name="repository">The repository.</param>
+        public SignupsController(SprylioRepository repository)
+        {
+            this.repository = repository;
+        }
+
         /// <summary>
         ///     Post a signup.
         /// </summary>
@@ -32,16 +43,9 @@ namespace Sprylio.Api.Controllers
         {
             var signup = new Signup(Provider.Sql.Create(), data.EmailAddress, DateTime.UtcNow);
 
-            await using (var repository = new SprylioRepository())
-            {
-                await repository.Database.EnsureDeletedAsync();
+            await this.repository.Signups.AddAsync(signup);
 
-                await repository.Database.EnsureCreatedAsync();
-
-                await repository.Signups.AddAsync(signup);
-
-                await repository.SaveChangesAsync();
-            }
+            await this.repository.SaveChangesAsync();
 
             return this.Accepted();
         }

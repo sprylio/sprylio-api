@@ -7,7 +7,7 @@ using Autofac;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Sprylio.Api.Tests
+namespace Sprylio.Api.Tests.Setup
 {
     /// <summary>
     ///     See https://blog.johnnyreilly.com/2020/10/autofac-6-integration-tests-and-generic-hosting.html.
