@@ -1,3 +1,5 @@
+# See https://dusted.codes/github-actions-for-dotnet-core-nuget-packages
+
 name: .NET Core
 
 on:
@@ -18,14 +20,8 @@ jobs:
       with:
       # You can find the latest sdk version here: https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/5.0/releases.json
         dotnet-version: 5.0.100-rc.1.20452.10
-    - uses: actions/cache@v2
-      id: cache
-      with:
-        path: ~/.nuget/packages
-        key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
-    - name: NuGet Restore
-      if: steps.cache.outputs.cache-hit != 'true'
-      run: nuget restore sprylio-api.sln
+    - name: Install dependencies
+      run: dotnet restore --locked-mode
     - name: Build
       run: dotnet build --configuration Release --no-restore
     - name: Azure Cosmos DB Emulator
