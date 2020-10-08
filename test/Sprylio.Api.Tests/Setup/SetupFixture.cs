@@ -25,8 +25,6 @@ namespace Sprylio.Api.Tests.Setup
             var cosmosDbProcesses = Process.GetProcessesByName("CosmosDB.Emulator");
 
             return cosmosDbProcesses.Length == 0
-
-                // ? Process.Start("C:\\Program Files\\Azure Cosmos DB Emulator\\CosmosDB.Emulator.exe", "/noui")
                 ? Process.Start("C:\\Program Files\\Azure Cosmos DB Emulator\\CosmosDB.Emulator.exe")
                 : cosmosDbProcesses[0];
         }
