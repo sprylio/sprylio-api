@@ -3,6 +3,7 @@
 
 using System;
 using System.Threading.Tasks;
+using ExRam.Gremlinq.Core;
 using Microsoft.AspNetCore.Mvc;
 using RT.Comb;
 using Sprylio.Api.Common;
@@ -43,9 +44,7 @@ namespace Sprylio.Api.Controllers
         {
             var signup = new Signup(Provider.Sql.Create(), data.EmailAddress, DateTime.UtcNow);
 
-            await this.repository.Signups.AddAsync(signup);
-
-            await this.repository.SaveChangesAsync();
+            await this.repository.AddSignupAsync(signup);
 
             return this.Accepted();
         }

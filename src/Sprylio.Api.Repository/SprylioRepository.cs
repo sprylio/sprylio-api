@@ -1,44 +1,39 @@
 ﻿// Copyright (c) Sprylio Inc. and contributors. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using System.Threading.Tasks;
+using ExRam.Gremlinq.Core;
 using Sprylio.Api.Model;
 
 namespace Sprylio.Api.Repository
 {
     /// <summary>
     ///     The repository for the sprylio db.
+    /// See https://medium.com/@jayanta.mondal/cosmos-db-graph-gremlin-api-how-to-executing-multiple-writes-as-a-unit-via-a-single-gremlin-2ce82d8bf365
+    /// and https://github.com/ExRam/ExRam.Gremlinq/issues/62
+    /// for "transaction" support.
     /// </summary>
-    /// <seealso cref="Microsoft.EntityFrameworkCore.DbContext" />
-    public class SprylioRepository : DbContext
+    public class SprylioRepository
     {
-        /// <summary>
-        ///     Gets the signups.
-        /// </summary>
-        /// <value>
-        ///     The signups.
-        /// </value>
-        public DbSet<Signup> Signups => this.Set<Signup>();
+        private readonly IGremlinQuerySource database;
 
-        /// <inheritdoc />
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SprylioRepository"/> class.
+        /// </summary>
+        /// <param name="database">The database.</param>
+        public SprylioRepository(IGremlinQuerySource database)
         {
-            optionsBuilder.UseCosmos("AccountEndpoint=https://localhost:8081/;AccountKey=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==", "sprylio");
+            this.database = database;
         }
 
-        /// <inheritdoc />
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        /// <summary>
+        /// Store the signup.
+        /// </summary>
+        /// <param name="signup">The signup.</param>
+        /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
+        public async Task AddSignupAsync(Signup signup)
         {
-            // See https://azure.microsoft.com/en-us/blog/a-fintech-startup-pivots-to-azure-cosmos-db/
-            // to choose appropriate partition keys
-            modelBuilder.Entity<Signup>(entity =>
-            {
-                entity.HasKey(signup => signup.Id);
-                entity.HasPartitionKey(signup => signup.Id);
-                entity.HasAlternateKey(signup => signup.EmailAddress);
-                entity.Property(signup => signup.Id).HasConversion(new GuidToStringConverter());
-            });
+            await this.database.AddV<Signup>(signup);
         }
     }
 }

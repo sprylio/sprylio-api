@@ -25,6 +25,8 @@ jobs:
     - name: Build
       run: dotnet build --configuration Release --no-restore
     - name: Azure Cosmos DB Emulator
+      env:
+       AZURE_COSMOS_EMULATOR_GREMLIN_ENDPOINT: true
       uses: southpolesteve/cosmos-emulator-github-action@v1
     - name: Test
       run: dotnet test --no-restore --verbosity normal
