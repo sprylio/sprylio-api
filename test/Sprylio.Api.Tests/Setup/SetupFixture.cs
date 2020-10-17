@@ -22,10 +22,10 @@ namespace Sprylio.Api.Tests.Setup
 
         private static Process? StartCosmosDb()
         {
-            var cosmosDbProcesses = Process.GetProcessesByName("CosmosDB.Emulator");
+            var cosmosDbProcesses = Process.GetProcessesByName("Microsoft.Azure.Cosmos.Emulator");
 
             return cosmosDbProcesses.Length == 0
-                ? Process.Start("C:\\Program Files\\Azure Cosmos DB Emulator\\CosmosDB.Emulator.exe")
+                ? Process.Start("C:\\Program Files\\Azure Cosmos DB Emulator\\Microsoft.Azure.Cosmos.Emulator.exe")
                 : cosmosDbProcesses[0];
         }
     }

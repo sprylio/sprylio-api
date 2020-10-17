@@ -19,9 +19,9 @@
       },
       "System.ComponentModel.Annotations": {
         "type": "Direct",
-        "requested": "[5.0.0-rc.1.20451.14, )",
-        "resolved": "5.0.0-rc.1.20451.14",
-        "contentHash": "DKy6FVHr2xf81iM473Xd4+gfhxWHjKGrqx+O02xgvVGfzt5cSU9sIX5yoo02EqVZhkWFm0CP6Zu4rD+8f2A69g=="
+        "requested": "[5.0.0-rc.2.20475.5, )",
+        "resolved": "5.0.0-rc.2.20475.5",
+        "contentHash": "KrBkcEbFU5WN1n15bdh3R8h7lZPFJD7KIec8WeiPtnFvYzzvhL+PDU1/8Mf2PRHdABAd5nveXV0TWtDH5WejVg=="
       },
       "StyleCop.Analyzers.Unstable": {
         "type": "Transitive",

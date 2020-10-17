@@ -3,22 +3,13 @@ Sprylio's API for matching purpose-driven cofounders.
 
 ## Configuring your dev environment
 
-- Install VS 2019 that includes .NET v5.0.0-rc.1
+- Install VS 2019 Preview
 
 https://visualstudio.microsoft.com/vs/preview/
-https://dotnet.microsoft.com/download/dotnet/5.0
 
-- Install SQL Server LocalDB 2019 
+- Install Azure Cosmos Emulator
 
-https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/sql-server-express-localdb?view=sql-server-ver15
-
-- Restore .NET Core local tools from the VS terminal
-
-\> dotnet tool restore
-
-See https://docs.microsoft.com/en-us/dotnet/core/tools/global-tools#install-a-local-tool
-
-
+https://docs.microsoft.com/en-us/azure/cosmos-db/local-emulator-release-notes
 
 
 ## Useful links
@@ -32,5 +23,5 @@ https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-web-api
 ### EF Core
 https://docs.microsoft.com/en-us/ef/core/
 
-### .NET 5 Json feature
-https://github.com/layomia/NET5JsonDemos/blob/master/Program.cs
+### .NET 5 Json features
+https://github.com/layomia/NET5Jsohttps://docs.microsoft.com/en-us/azure/cosmos-db/local-emulator-release-notesnDemos/blob/master/Program.cs
