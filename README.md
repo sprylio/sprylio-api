@@ -11,6 +11,7 @@ https://visualstudio.microsoft.com/vs/preview/
 
 https://docs.microsoft.com/en-us/azure/cosmos-db/local-emulator-release-notes
 
+Set the environment variable AZURE_COSMOS_EMULATOR_CASSANDRA_ENDPOINT=true
 
 ## Useful links
 

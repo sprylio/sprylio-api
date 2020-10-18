@@ -4,9 +4,7 @@ name: .NET Core
 
 on:
   push:
-    branches: [ master ]
   pull_request:
-    branches: [ master ]
 
 jobs:
   build:
@@ -19,12 +17,14 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
       # You can find the latest sdk version here: https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/5.0/releases.json
-        dotnet-version: 5.0.100-rc.1.20452.10
+        dotnet-version: 5.0.100-rc.2.20479.15
     - name: Install dependencies
       run: dotnet restore --locked-mode
     - name: Build
       run: dotnet build --configuration Release --no-restore
     - name: Azure Cosmos DB Emulator
+      env:
+       AZURE_COSMOS_EMULATOR_GREMLIN_ENDPOINT: true
       uses: southpolesteve/cosmos-emulator-github-action@v1
     - name: Test
       run: dotnet test --no-restore --verbosity normal

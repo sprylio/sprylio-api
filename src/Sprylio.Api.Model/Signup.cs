@@ -11,7 +11,7 @@ namespace Sprylio.Api.Model
     ///     See https://docs.microsoft.com/en-us/ef/core/miscellaneous/nullable-reference-types.
     ///     and https://github.com/layomia/NET5JsonDemos/blob/master/Program.cs.
     /// </summary>
-    public class Signup
+    public class Signup : Entity
     {
         /// <summary>
         ///     Initializes a new instance of the <see cref="Signup" /> class.
@@ -25,14 +25,6 @@ namespace Sprylio.Api.Model
             this.EmailAddress = emailAddress;
             this.CreatedDateTime = createdDateTime;
         }
-
-        /// <summary>
-        ///     Gets the identifier.
-        /// </summary>
-        /// <value>
-        ///     The identifier.
-        /// </value>
-        public Guid Id { get; private set; }
 
         /// <summary>
         ///     Gets the email address.

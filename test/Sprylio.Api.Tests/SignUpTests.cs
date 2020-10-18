@@ -27,11 +27,11 @@ namespace Sprylio.Api.Tests
         {
             this.factory = factory;
 
-            var repository = factory.Services.GetRequiredService<SprylioRepository>();
+            // var repository = factory.Services.GetRequiredService<SprylioRepository>();
 
-            repository.Database.EnsureDeleted();
+            // repository.Database.EnsureDeleted();
 
-            repository.Database.EnsureCreated();
+            // repository.Database.EnsureCreated();
         }
 
         [Fact]
