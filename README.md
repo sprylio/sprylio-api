@@ -1,5 +1,7 @@
-# sprylio-api
+# Sprylio API
 Sprylio's API for matching purpose-driven cofounders.
+
+[Here's the project board](https://github.com/orgs/sprylio/projects/1).
 
 ## Configuring your dev environment
 
